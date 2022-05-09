@@ -1,0 +1,41 @@
+body{
+    background-color: #e0e0e0 /*#f5f5f5*/
+}
+
+#contenedor{
+    width: 99%;
+    margin-top: 5px;
+}
+
+#logo{    
+    padding: 5px;
+    margin-left: 10px;
+    width: 110px;
+}
+
+#txt-logo{
+    margin-left: 135px;
+    text-shadow: -5px 5px 5px #0a0e27;
+}
+
+.boton-siguiente{
+    float: right;
+}
+
+.boton-atras{
+    float: left;
+}
+
+#boton-cerrar-sesion{
+    left: 23px;
+    width: fit-content;
+}
+
+#boton-cerrar-sesion-arriba{
+    position: fixed;
+    left: 25px;
+    bottom: 90px;
+    padding-top: 15px;
+    margin-bottom: 0px;
+    width: fit-content;
+}

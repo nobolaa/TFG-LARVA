@@ -1,0 +1,75 @@
+{% extends 'vista/base.html' %}
+
+{% block css %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="css/eleccion_proyectos.css"/>
+{% endblock %}
+
+
+{% block cabecera %}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+            <a href="#" onclick="return dopost('index.php');" class="brand-logo center"><img src="img/larva_files/logo.png" id="logo"></a> 
+            
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Años anteriores</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+
+    
+{% block contenido %}
+    <div id="caja" class="container">
+        <ul id="lista-proyectos" class="collection">
+
+            <!-- Titulo -->
+            <div class="collection-header">
+                <h3 id="titulo-caja">Crear Proyectos</h3>
+            </div>
+
+            <a href="#!" onclick="return dopost('index.php', {pagina: 'Crear Proyecto Nuevo'});" class="caja-item collection-item black-text hvr-fade">
+                <div class="caja-proyecto row valign-wrapper">
+                    <div class="col s3 m1">
+                        <img src="img/administracion/nuevo_proyecto.jpg" alt="" class="responsive-img circle">
+                    </div>
+                    <div class="col s9 m11">
+                        <i class="material-icons right">low_priority</i>
+                        <span class="titulo-proyecto">Nuevo Proyecto</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#!" onclick="return dopost('index.php', {pagina: 'Listado Configuracion'});" class="caja-item collection-item black-text hvr-fade">
+                <div class="caja-proyecto row valign-wrapper">
+                    <div class="col s3 m1">
+                        <img src="img/administracion/reutilizar_configuracion.png" alt="" class="responsive-img circle">
+                    </div>
+                    <div class="col s9 m11">
+                        <i class="material-icons right">low_priority</i>
+                        <span class="titulo-proyecto">Reutilizar Configuración</span>
+                    </div>
+                </div>
+            </a>
+        </ul>
+
+        <a href="#" onclick="return dopost('index.php', {pagina: 'Administrar Proyectos'});" class="boton-atras btn-floating btn-large grey darken-4">
+            <i class="large material-icons">arrow_back</i>
+        </a>
+    </div>
+
+    <!--boton cerrar sesion-->
+    <div id="boton-cerrar-sesion" class="fixed-action-btn">
+        <a href="#" onclick="return dopost('index.php', {cerrar_sesion:'true'});" class="btn-floating btn-large red darken-3">
+            <i class="large material-icons">power_settings_new</i>
+        </a>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="js/eleccion_proyectos.js"></script>
+{% endblock %}
+

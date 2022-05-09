@@ -1,0 +1,85 @@
+{% extends 'vista/base.html' %}
+
+{% block css %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="css/formularios.css"/>
+{% endblock %}
+
+
+{% block cabecera %}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+            <a href="#" onclick="return dopost('index.php');" class="brand-logo center"><img src="img/larva_files/logo.png" id="logo"></a> 
+            
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Años anteriores</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+
+    
+{% block contenido %}
+    <div id="caja" class="container">
+        <div id="sub-caja" class="row">
+            <div class="collection-header">
+                <h3 id="titulo-caja">Nuevo Usuario</h3>
+            </div>
+            <form id="formulario" class="col s12 grey lighten-5" action="index.php" method="POST" enctype="multipart/form-data">
+                <div class="row">
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="usuario" name="usuario" type="text"" class="validate">
+                        <label for="usuario">Nombre</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">call_to_action</i>
+                        <input id="dni" name="dni" type="text"" class="validate">
+                        <label for="dni">DNI</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">email</i>
+                        <input id="correo" name="correo" type="email" class="validate">
+                        <label for="correo">Correo Electrónico</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input id="pass" name="pass" type="password"" class="validate">
+                        <label for="pass">Contraseña</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">local_library</i>
+                        <input id="cursos" name="cursos" type="text"" class="validate">
+                        <label for="cursos">Curso/s</label>
+                    </div>
+
+                    <!--person_add-->
+                    <input type="hidden" name="pagina" value="Administrar Usuarios">
+                    <input type="hidden" name="crear_usuario" value="true">
+                    <input type="hidden" name="tipo" value="Alumno">
+                    <button id="boton-crear" class="light-blue lighten-2 btn waves-effect waves-light center" type="submit" name="action">Crear</button>
+                    <button onclick="dopost('index.php', {pagina:'Administrar Usuarios'});return false;" id="boton-crear" type="button" class="red lighten-2 btn waves-effect waves-light center">Cancelar</button>
+                </div> 
+            </form>
+        </div>
+    </div>
+
+    <!--boton cerrar sesion-->
+    <div id="boton-cerrar-sesion" class="fixed-action-btn">
+        <a href="#" onclick="return dopost('index.php', {cerrar_sesion:'true'});" class="btn-floating btn-large red darken-3">
+            <i class="large material-icons">power_settings_new</i>
+        </a>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="js/formularios.js"></script>
+{% endblock %}

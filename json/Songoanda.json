@@ -1,0 +1,536 @@
+{
+  "config": {
+    "head": "Desarrollo Basado en Agentes 2019-2020",
+    "title": "Dialog with Songoanda",
+    "author": "Luis Castillo Vidal",
+    "email": "L.Castillo@decsai.ugr.es",
+    "subjects": [
+      {
+        "id": "Fanny"
+      },
+      {
+        "id": "Clodoveo"
+      },
+      {
+        "id": "Luigi"
+      },
+      {
+        "id": "Luis"
+      },
+      {
+        "id": "HanSolo"
+      },
+      {
+        "id": "Leia"
+      },
+      {
+        "id": "Lando"
+      },
+      {
+        "id": "Dunia"
+      },
+      {
+        "id": "Jesus"
+      },
+      {
+        "id": "Ana"
+      },
+      {
+        "id": "Felix"
+      }
+    ],
+    "competences": [
+      {
+        "id": "map1",
+        "description": "Agent has received the HELLO message"
+      },
+      {
+        "id": "map2",
+        "description": "Agent has received the counterpassword"
+      },
+      {
+        "id": "map3",
+        "description": "Who is this feature? Tell the profssor"
+      }
+    ],
+    "hits": [
+      {
+        "id": "ProgressTriple",
+        "update": "max",
+        "type": "number",
+        "description": "Degree of acquisition of this competence"
+      },
+      {
+        "id": "First success",
+        "update": "min",
+        "type": "date",
+        "description": "The time at wich this competence was fulfilled for the first time"
+      },
+      {
+        "id": "Messages received",
+        "update": "add",
+        "type": "number",
+        "description": "Number of messages received while acquiring this competence"
+      },
+      {
+        "id": "First message",
+        "update": "min",
+        "type": "date",
+        "description": "Date of first message received while acquiring this competence"
+      },
+      {
+        "id": "Last message",
+        "update": "max",
+        "type": "date",
+        "description": "Date of last message received while acquiring this competence"
+      },
+      {
+        "id": "Software exceptions",
+        "update": "add",
+        "type": "number",
+        "description": "Number of exceptions produced in the server while acquiring this competence"
+      },
+      {
+        "id": "Feature",
+        "update": "set",
+        "type": "text",
+        "description": "Feature (word) to to be validated with the teacher"
+      }
+    ],
+    "report": {
+      "html": "./html",
+      "refresh": 5,
+      "hits_reported": [
+        {
+          "id": "ProgressTriple",
+          "scale": [
+            {
+              "id": "Not started",
+              "from": 0,
+              "to": 0,
+              "img": "red2.png",
+              "description": "Competence not started yet"
+            },
+            {
+              "id": "Not finished",
+              "from": 1,
+              "to": 99,
+              "img": "yellow2.png",
+              "description": "Competence ongoing but not finished yet"
+            },
+            {
+              "id": "Completed",
+              "from": 100,
+              "to": 100,
+              "img": "green2.png",
+              "description": "Competence fully acquired"
+            }
+          ]
+        }
+      ],
+      "badges": [
+        {
+          "id": "Early bird",
+          "hit": "First success",
+          "select": "min",
+          "img": "earlybird.jpg",
+          "description": "Badge for th first subject to complete 100% of this competence"
+        },
+        {
+          "id": "Verbose",
+          "hit": "Messages received",
+          "select": "max",
+          "img": "mailbox.png",
+          "description": "Badge for the most verbose subject during this competence"
+        }
+      ]
+    }
+  },
+  "ledger": [
+    {
+      "id": "Miguel K.C.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 8,
+          "First message": "17/09/2019_20:00:15",
+          "Last message": "23/09/2019_20:41:39",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 3,
+          "First message": "",
+          "Last message": "23/09/2019_20:41:39",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 50,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": "Mutenroshi"
+        }
+      ]
+    },
+    {
+      "id": "Ana B.F.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "17/09/2019_20:24:16",
+          "Messages received": 1,
+          "First message": "17/09/2019_20:24:16",
+          "Last message": "17/09/2019_20:24:16",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "17/09/2019_20:24:21",
+          "Messages received": 1,
+          "First message": "17/09/2019_20:24:19",
+          "Last message": "17/09/2019_20:24:19",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 50,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": "Kamisama"
+        }
+      ]
+    },
+    {
+      "id": "Celia B.L.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "17/09/2019_20:25:07",
+          "Messages received": 1,
+          "First message": "17/09/2019_20:25:07",
+          "Last message": "17/09/2019_20:25:07",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "17/09/2019_20:26:05",
+          "Messages received": 1,
+          "First message": "17/09/2019_20:25:43",
+          "Last message": "17/09/2019_20:25:44",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 50,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": "Vegeta"
+        }
+      ]
+    },
+    {
+      "id": "Diego C.H.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "17/09/2019_21:35:18",
+          "Messages received": 3,
+          "First message": "17/09/2019_21:35:18",
+          "Last message": "17/09/2019_21:37:04",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "17/09/2019_21:35:19",
+          "Messages received": 3,
+          "First message": "17/09/2019_21:35:19",
+          "Last message": "17/09/2019_21:37:05",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 50,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": "Satan"
+        }
+      ]
+    },
+    {
+      "id": "Michael Kieran B.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "23/09/2019_19:51:23",
+          "Messages received": 3,
+          "First message": "23/09/2019_19:51:23",
+          "Last message": "23/09/2019_20:05:20",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 1,
+          "First message": "",
+          "Last message": "23/09/2019_20:16:10",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 50,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": "Vegeta"
+        }
+      ]
+    },
+    {
+      "id": "Nabil A.A.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "23/09/2019_20:21:29",
+          "Messages received": 4,
+          "First message": "23/09/2019_20:21:29",
+          "Last message": "23/09/2019_20:34:03",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "23/09/2019_20:21:52",
+          "Messages received": 4,
+          "First message": "23/09/2019_20:21:29",
+          "Last message": "23/09/2019_20:34:03",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 50,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": "Freezer"
+        }
+      ]
+    },
+    {
+      "id": "Pablo D.G.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "23/09/2019_20:38:33",
+          "Messages received": 1,
+          "First message": "23/09/2019_20:38:33",
+          "Last message": "23/09/2019_20:38:33",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "23/09/2019_20:38:39",
+          "Messages received": 1,
+          "First message": "23/09/2019_20:38:33",
+          "Last message": "23/09/2019_20:38:33",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 50,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": "Bulma"
+        }
+      ]
+    },
+    {
+      "id": "Adrian I.P.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "23/09/2019_20:41:07",
+          "Messages received": 1,
+          "First message": "23/09/2019_20:41:07",
+          "Last message": "23/09/2019_20:41:07",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "23/09/2019_20:41:11",
+          "Messages received": 1,
+          "First message": "23/09/2019_20:41:07",
+          "Last message": "23/09/2019_20:41:07",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 50,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": "Bulma"
+        }
+      ]
+    },
+    {
+      "id": "Monica C.G.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "23/09/2019_20:44:40",
+          "Messages received": 1,
+          "First message": "23/09/2019_20:44:40",
+          "Last message": "23/09/2019_20:44:40",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "23/09/2019_20:44:40",
+          "Messages received": 1,
+          "First message": "23/09/2019_20:44:40",
+          "Last message": "23/09/2019_20:44:40",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 50,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": "Satan"
+        }
+      ]
+    },
+    {
+      "id": "Alejandro M.M.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "23/09/2019_20:44:50",
+          "Messages received": 1,
+          "First message": "23/09/2019_20:44:50",
+          "Last message": "23/09/2019_20:44:50",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "23/09/2019_20:44:50",
+          "Messages received": 1,
+          "First message": "23/09/2019_20:44:50",
+          "Last message": "23/09/2019_20:44:50",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 50,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": "Mutenroshi"
+        }
+      ]
+    },
+    {
+      "id": "Francisco B.C.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": "",
+          "Software exceptions": -1,
+          "Feature": ""
+        }
+      ]
+    }
+  ]
+}

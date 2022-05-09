@@ -1,0 +1,218 @@
+@media (max-width: 601px){
+    #tabla{
+        padding: 0px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+  } 
+  
+  @media (min-width: 602px){
+    #tabla{
+        padding: 0px;
+        margin: 3px;
+    }
+} 
+
+/*tablas*/
+
+#buscar{
+    padding-top: 3px;
+    font-size: 30px;
+}
+
+#linea-entre-grupos{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#ayuda-resumen{
+    display: none;
+}
+
+#ayuda-progreso{
+    display: none;
+    top: 80px;
+    position: relative;
+}
+
+#ayuda-insignias{
+    display: none;
+    top: 80px;
+    position: relative;
+}
+
+#img-insignia{
+    margin-left: 10px;
+}
+
+#info-insignia{
+    margin-left: 0px;
+    text-align: left;
+}
+
+#boton-siguiente{
+    position: relative;
+    top: -120px;
+}
+
+.titulo-ayuda{
+    position: fixed;
+    top: 140px;
+    left: 140px;
+}
+
+#linea-entre-ayuda{
+    height: 2px;
+}
+
+.grupo{
+    margin-bottom: 0px;
+}
+
+.titulo-grupo{
+    font-style: italic;
+}
+
+#boton-grupos{
+    left: 25px;
+}
+
+div.row.row-entre-mapas{
+    margin-bottom: 0;
+}
+
+.nivel-facil{
+	border:1px solid #14937a;
+    border-bottom:10px solid #14937a;
+    
+}
+.nivel-header-facil{
+    background: #16a085;
+	border-bottom:10px solid #14937a;
+}
+
+.nivel-normal{
+	border:1px solid #cd8109;
+    border-bottom:10px solid #cd8109;
+    
+}
+.nivel-header-normal{
+    background: #cd8109;
+	border-bottom:10px solid #cd8109;
+}
+
+.nivel-dificil{
+	border:1px solid #a12f23;
+    border-bottom:10px solid #a12f23;
+    
+}
+.nivel-header-dificil{
+    background: #a12f23;
+	border-bottom:10px solid #a12f23;
+}
+
+.nivel-extremo{
+	border:1px solid #3e2723 ;
+    border-bottom:10px solid #3e2723 ;
+    
+}
+.nivel-header-extremo{
+    background: #3e2723 ;
+	border-bottom:10px solid #3e2723 ;
+}
+
+.nivel {
+    float: left;
+    margin:20px 0;background:url(../img/fondoanaliticas.png) repeat;
+
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+}
+
+.pricing-table strong { 
+    font-weight: 700; color: #3d3d3d; 
+}
+
+.pricing-table-header {
+    padding: 5px 0 5px 0;
+}
+
+.pricing-table-header h2 {  
+    font-weight: 700; color:#FFF; 
+}
+
+.boton-desplegar{
+    position: relative;
+    top: -3px;
+    left: -2px;
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 50px;
+}
+
+.pricing-table-header h3 { 
+    font-weight: 400; color:#FFF;  
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.pricing-table-text {
+    margin: 15px 30px 0 30px;
+    padding: 0 10px 15px 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    line-height: 20px;
+    font-size: 16px;
+    color: #888;
+}
+
+.caja-datos{
+    border-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pricing-table-features {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px dashed #888;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    color: rgb(96, 96, 96);
+}
+
+#primera-linea{
+    margin-top: 5px;
+    margin-bottom: 0px;
+    position: relative;
+    right: -15px;
+}
+
+#primer-dato{
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.dato{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.caja-insignias{
+    padding-top: 5px;
+}
+
+#insignias{
+    padding: 0;
+}
+
+.insignia{
+    width: 50px;
+    height: 50px;
+}
+
+div.row.row-final{
+    margin-bottom: 0;
+}

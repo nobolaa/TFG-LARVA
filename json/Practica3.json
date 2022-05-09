@@ -1,0 +1,1051 @@
+{
+  "config": {
+    "head": "Desarrollo Basado en Agentes 2019-2020",
+    "title": "Practica3",
+    "author": "Luis Castillo Vidal",
+    "email": "L.Castillo@decsai.ugr.es",
+    "subjects": [
+      {
+        "id": "Grupo B"
+      },
+      {
+        "id": "Grupo C"
+      },
+      {
+        "id": "Grupo D"
+      },
+      {
+        "id": "Grupo E"
+      },
+      {
+        "id": "Grupo F"
+      },
+      {
+        "id": "Grupo H"
+      },
+      {
+        "id": "Grupo I"
+      },
+      {
+        "id": "Grupo J"
+      },
+      {
+        "id": "Grupo K"
+      },
+      {
+        "id": "Grupo L"
+      },
+      {
+        "id": "Grupo M"
+      },
+      {
+        "id": "Grupo N"
+      },
+      {
+        "id": "Grupo A"
+      }
+    ],
+    "competences": [
+      {
+        "id": "map0",
+        "description": "4 fixed Germans & 10000 units of energy"
+      },
+      {
+        "id": "map1",
+        "description": "5 fixed Germans and 10000 units of energy"
+      },
+      {
+        "id": "map2",
+        "description": "5 random Germans and 10000 units of energy"
+      },
+      {
+        "id": "map3",
+        "description": "6 random Germans & only 700 units of energy"
+      },
+      {
+        "id": "map4",
+        "description": "8 random Germans & 10000 units of energy"
+      },
+      {
+        "id": "map5",
+        "description": "10 random Germans and 5000 units of energy"
+      }
+    ],
+    "hits": [
+      {
+        "id": "ProgressP3",
+        "update": "max",
+        "type": "number",
+        "description": "Degree of acquisition of this competence"
+      },
+      {
+        "id": "First rescue",
+        "update": "min",
+        "type": "date",
+        "description": "The time at wich the first German has been rescued"
+      },
+      {
+        "id": "First full rescue",
+        "update": "min",
+        "type": "date",
+        "description": "The time at wich all Germans have been rescued"
+      },
+      {
+        "id": "Rescue",
+        "update": "max",
+        "type": "number",
+        "description": "Number of germans rescued"
+      },
+      {
+        "id": "LatencyR",
+        "update": "diff",
+        "type": "date",
+        "hit1": "First full rescue",
+        "hit2": "First message",
+        "description": "Time to complete this competence since the first message"
+      },
+      {
+        "id": "Messages received",
+        "update": "add",
+        "type": "number",
+        "description": "Number of messages received while acquiring this competence"
+      },
+      {
+        "id": "First message",
+        "update": "min",
+        "type": "date",
+        "description": "Date of first message received while acquiring this competence"
+      }
+    ],
+    "report": {
+      "html": "/var/www/html/Analytics",
+      "refresh": 30,
+      "hits_reported": [
+        {
+          "id": "ProgressP3",
+          "scale": [
+            {
+              "id": "Not started",
+              "from": 0,
+              "to": 0,
+              "img": "0p_5.png",
+              "description": "Competence not started yet"
+            },
+            {
+              "id": "Subscribe",
+              "from": 1,
+              "to": 20,
+              "img": "20p_5.png",
+              "description": "Subscribe completed"
+            },
+            {
+              "id": "Checkin",
+              "from": 21,
+              "to": 40,
+              "img": "40p_5.png",
+              "description": "Full checkin Completed"
+            },
+            {
+              "id": "Detection",
+              "from": 41,
+              "to": 60,
+              "img": "60p_5.png",
+              "description": "First German detected"
+            },
+            {
+              "id": "Partial rescue",
+              "from": 61,
+              "to": 80,
+              "img": "80p_5.png",
+              "description": "At least one German rescued"
+            },
+            {
+              "id": "Goal",
+              "from": 81,
+              "to": 100,
+              "img": "100p_5.png",
+              "description": "All Germans rescued"
+            }
+          ]
+        }
+      ],
+      "badges": [
+        {
+          "id": "Early rescue",
+          "hit": "First rescue",
+          "select": "min",
+          "img": "earlyrescue.png",
+          "description": "Badge for the first subject to rescue a German"
+        },
+        {
+          "id": "Early bird",
+          "hit": "First full rescue",
+          "select": "min",
+          "img": "earlybird.jpg",
+          "description": "Badge for the first subject to rescue all Germans"
+        },
+        {
+          "id": "Rescue",
+          "hit": "Rescue",
+          "select": "max",
+          "img": "rescue.png",
+          "description": "Badge for the highest number of Germans rescued"
+        },
+        {
+          "id": "Flash",
+          "hit": "LatencyR",
+          "select": "min",
+          "img": "flash.png",
+          "description": "Badge for the shortest time to complete the competence since the first message"
+        }
+      ]
+    }
+  },
+  "ledger": [
+    {
+      "id": "Grupo C",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": 100,
+          "First rescue": "17/12/2019_16:11:32",
+          "First full rescue": "17/12/2019_16:11:50",
+          "Rescue": 4,
+          "LatencyR": "030:07:36",
+          "Messages received": -1,
+          "First message": "16/12/2019_10:04:14"
+        },
+        {
+          "id": "map1",
+          "ProgressP3": 100,
+          "First rescue": "15/12/2019_02:35:00",
+          "First full rescue": "17/12/2019_22:59:51",
+          "Rescue": 5,
+          "LatencyR": "365:41:08",
+          "Messages received": -1,
+          "First message": "02/12/2019_17:18:43"
+        },
+        {
+          "id": "map2",
+          "ProgressP3": 100,
+          "First rescue": "17/12/2019_23:01:49",
+          "First full rescue": "18/12/2019_10:30:59",
+          "Rescue": 5,
+          "LatencyR": "021:25:19",
+          "Messages received": -1,
+          "First message": "17/12/2019_13:05:40"
+        },
+        {
+          "id": "map3",
+          "ProgressP3": 100,
+          "First rescue": "18/12/2019_10:32:01",
+          "First full rescue": "18/12/2019_16:59:38",
+          "Rescue": 6,
+          "LatencyR": "017:37:01",
+          "Messages received": -1,
+          "First message": "17/12/2019_23:22:37"
+        },
+        {
+          "id": "map4",
+          "ProgressP3": 100,
+          "First rescue": "18/12/2019_10:32:56",
+          "First full rescue": "18/12/2019_17:27:37",
+          "Rescue": 8,
+          "LatencyR": "006:54:47",
+          "Messages received": -1,
+          "First message": "18/12/2019_10:32:50"
+        },
+        {
+          "id": "map5",
+          "ProgressP3": 80,
+          "First rescue": "18/12/2019_17:28:56",
+          "First full rescue": "",
+          "Rescue": 9,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "16/12/2019_10:25:02"
+        }
+      ]
+    },
+    {
+      "id": "Grupo D",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": 100,
+          "First rescue": "14/12/2019_16:24:02",
+          "First full rescue": "14/12/2019_16:48:51",
+          "Rescue": 4,
+          "LatencyR": "192:30:56",
+          "Messages received": -1,
+          "First message": "06/12/2019_16:17:55"
+        },
+        {
+          "id": "map1",
+          "ProgressP3": 100,
+          "First rescue": "15/12/2019_15:33:58",
+          "First full rescue": "15/12/2019_16:14:55",
+          "Rescue": 5,
+          "LatencyR": "307:57:59",
+          "Messages received": -1,
+          "First message": "02/12/2019_20:16:56"
+        },
+        {
+          "id": "map2",
+          "ProgressP3": 100,
+          "First rescue": "15/12/2019_15:44:06",
+          "First full rescue": "15/12/2019_15:50:13",
+          "Rescue": 5,
+          "LatencyR": "000:06:21",
+          "Messages received": -1,
+          "First message": "15/12/2019_15:43:52"
+        },
+        {
+          "id": "map3",
+          "ProgressP3": 100,
+          "First rescue": "15/12/2019_15:59:55",
+          "First full rescue": "15/12/2019_20:06:37",
+          "Rescue": 6,
+          "LatencyR": "004:13:17",
+          "Messages received": -1,
+          "First message": "15/12/2019_15:53:20"
+        },
+        {
+          "id": "map4",
+          "ProgressP3": 100,
+          "First rescue": "15/12/2019_20:14:56",
+          "First full rescue": "15/12/2019_20:18:52",
+          "Rescue": 8,
+          "LatencyR": "000:07:38",
+          "Messages received": -1,
+          "First message": "15/12/2019_20:11:14"
+        },
+        {
+          "id": "map5",
+          "ProgressP3": 80,
+          "First rescue": "15/12/2019_20:21:48",
+          "First full rescue": "",
+          "Rescue": 9,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "15/12/2019_20:20:50"
+        }
+      ]
+    },
+    {
+      "id": "Grupo B",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "18/12/2019_20:57:06"
+        },
+        {
+          "id": "map1",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "18/12/2019_23:31:10"
+        },
+        {
+          "id": "map2",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "19/12/2019_00:21:14"
+        },
+        {
+          "id": "map3",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "19/12/2019_00:21:34"
+        },
+        {
+          "id": "map4",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "19/12/2019_00:22:20"
+        },
+        {
+          "id": "map5",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "19/12/2019_00:22:34"
+        }
+      ]
+    },
+    {
+      "id": "Grupo H",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": 80,
+          "First rescue": "19/12/2019_06:37:51",
+          "First full rescue": "",
+          "Rescue": 1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "06/12/2019_02:50:41"
+        },
+        {
+          "id": "map1",
+          "ProgressP3": 60,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "05/12/2019_10:28:51"
+        },
+        {
+          "id": "map2",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "06/12/2019_02:49:31"
+        },
+        {
+          "id": "map3",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "06/12/2019_02:49:47"
+        },
+        {
+          "id": "map4",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "06/12/2019_02:50:08"
+        },
+        {
+          "id": "map5",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "06/12/2019_02:50:28"
+        }
+      ]
+    },
+    {
+      "id": "Grupo I",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": 100,
+          "First rescue": "13/12/2019_00:55:01",
+          "First full rescue": "13/12/2019_00:55:24",
+          "Rescue": 4,
+          "LatencyR": "182:26:31",
+          "Messages received": -1,
+          "First message": "05/12/2019_10:28:53"
+        },
+        {
+          "id": "map1",
+          "ProgressP3": 100,
+          "First rescue": "10/12/2019_18:29:33",
+          "First full rescue": "13/12/2019_00:52:23",
+          "Rescue": 5,
+          "LatencyR": "182:21:05",
+          "Messages received": -1,
+          "First message": "05/12/2019_10:31:18"
+        },
+        {
+          "id": "map2",
+          "ProgressP3": 100,
+          "First rescue": "17/12/2019_18:29:18",
+          "First full rescue": "17/12/2019_18:29:50",
+          "Rescue": 5,
+          "LatencyR": "000:01:32",
+          "Messages received": -1,
+          "First message": "17/12/2019_18:28:18"
+        },
+        {
+          "id": "map3",
+          "ProgressP3": 80,
+          "First rescue": "17/12/2019_20:30:13",
+          "First full rescue": "",
+          "Rescue": 4,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "17/12/2019_18:31:25"
+        },
+        {
+          "id": "map4",
+          "ProgressP3": 100,
+          "First rescue": "17/12/2019_18:33:37",
+          "First full rescue": "17/12/2019_18:43:12",
+          "Rescue": 8,
+          "LatencyR": "000:09:52",
+          "Messages received": -1,
+          "First message": "17/12/2019_18:33:20"
+        },
+        {
+          "id": "map5",
+          "ProgressP3": 80,
+          "First rescue": "17/12/2019_18:45:54",
+          "First full rescue": "",
+          "Rescue": 1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "17/12/2019_18:44:52"
+        }
+      ]
+    },
+    {
+      "id": "Grupo N",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": 20,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "14/12/2019_18:46:36"
+        },
+        {
+          "id": "map1",
+          "ProgressP3": 20,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "14/12/2019_18:24:37"
+        },
+        {
+          "id": "map2",
+          "ProgressP3": 20,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "18/12/2019_15:25:20"
+        },
+        {
+          "id": "map3",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        },
+        {
+          "id": "map4",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        },
+        {
+          "id": "map5",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        }
+      ]
+    },
+    {
+      "id": "Grupo M",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": 100,
+          "First rescue": "12/12/2019_13:17:37",
+          "First full rescue": "12/12/2019_13:27:31",
+          "Rescue": 4,
+          "LatencyR": "027:05:04",
+          "Messages received": -1,
+          "First message": "11/12/2019_10:22:27"
+        },
+        {
+          "id": "map1",
+          "ProgressP3": 100,
+          "First rescue": "16/12/2019_00:20:01",
+          "First full rescue": "16/12/2019_00:24:24",
+          "Rescue": 5,
+          "LatencyR": "000:04:31",
+          "Messages received": -1,
+          "First message": "16/12/2019_00:19:53"
+        },
+        {
+          "id": "map2",
+          "ProgressP3": 100,
+          "First rescue": "15/12/2019_23:19:09",
+          "First full rescue": "16/12/2019_00:18:49",
+          "Rescue": 5,
+          "LatencyR": "079:06:11",
+          "Messages received": -1,
+          "First message": "12/12/2019_17:12:38"
+        },
+        {
+          "id": "map3",
+          "ProgressP3": 100,
+          "First rescue": "16/12/2019_00:43:02",
+          "First full rescue": "16/12/2019_18:03:09",
+          "Rescue": 6,
+          "LatencyR": "017:20:17",
+          "Messages received": -1,
+          "First message": "16/12/2019_00:42:52"
+        },
+        {
+          "id": "map4",
+          "ProgressP3": 100,
+          "First rescue": "16/12/2019_18:07:18",
+          "First full rescue": "16/12/2019_21:06:20",
+          "Rescue": 8,
+          "LatencyR": "003:00:00",
+          "Messages received": -1,
+          "First message": "16/12/2019_18:06:20"
+        },
+        {
+          "id": "map5",
+          "ProgressP3": 80,
+          "First rescue": "16/12/2019_18:45:23",
+          "First full rescue": "",
+          "Rescue": 3,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "16/12/2019_18:35:07"
+        }
+      ]
+    },
+    {
+      "id": "Grupo K",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": 80,
+          "First rescue": "17/12/2019_17:48:03",
+          "First full rescue": "",
+          "Rescue": 2,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "13/12/2019_20:01:58"
+        },
+        {
+          "id": "map1",
+          "ProgressP3": 80,
+          "First rescue": "17/12/2019_18:38:23",
+          "First full rescue": "",
+          "Rescue": 1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "10/12/2019_16:29:29"
+        },
+        {
+          "id": "map2",
+          "ProgressP3": 80,
+          "First rescue": "18/12/2019_23:12:45",
+          "First full rescue": "",
+          "Rescue": 1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "18/12/2019_20:15:45"
+        },
+        {
+          "id": "map3",
+          "ProgressP3": 60,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "18/12/2019_20:16:37"
+        },
+        {
+          "id": "map4",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "18/12/2019_20:19:21"
+        },
+        {
+          "id": "map5",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "12/12/2019_10:32:44"
+        }
+      ]
+    },
+    {
+      "id": "Grupo L",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": 100,
+          "First rescue": "16/12/2019_19:08:52",
+          "First full rescue": "18/12/2019_19:17:37",
+          "Rescue": 4,
+          "LatencyR": "354:01:14",
+          "Messages received": -1,
+          "First message": "04/12/2019_01:16:23"
+        },
+        {
+          "id": "map1",
+          "ProgressP3": 100,
+          "First rescue": "18/12/2019_19:19:17",
+          "First full rescue": "18/12/2019_20:31:35",
+          "Rescue": 5,
+          "LatencyR": "321:53:52",
+          "Messages received": -1,
+          "First message": "05/12/2019_10:37:43"
+        },
+        {
+          "id": "map2",
+          "ProgressP3": 100,
+          "First rescue": "18/12/2019_20:32:12",
+          "First full rescue": "18/12/2019_20:48:10",
+          "Rescue": 5,
+          "LatencyR": "142:07:14",
+          "Messages received": -1,
+          "First message": "12/12/2019_22:40:56"
+        },
+        {
+          "id": "map3",
+          "ProgressP3": 80,
+          "First rescue": "18/12/2019_20:48:43",
+          "First full rescue": "",
+          "Rescue": 1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "13/12/2019_11:31:23"
+        },
+        {
+          "id": "map4",
+          "ProgressP3": 80,
+          "First rescue": "19/12/2019_10:06:28",
+          "First full rescue": "",
+          "Rescue": 4,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "19/12/2019_10:02:46"
+        },
+        {
+          "id": "map5",
+          "ProgressP3": 40,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "12/12/2019_22:41:18"
+        }
+      ]
+    },
+    {
+      "id": "Grupo F",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": 100,
+          "First rescue": "15/12/2019_17:44:08",
+          "First full rescue": "15/12/2019_17:44:23",
+          "Rescue": 4,
+          "LatencyR": "014:34:32",
+          "Messages received": -1,
+          "First message": "15/12/2019_03:09:51"
+        },
+        {
+          "id": "map1",
+          "ProgressP3": 100,
+          "First rescue": "15/12/2019_18:52:36",
+          "First full rescue": "15/12/2019_18:53:13",
+          "Rescue": 5,
+          "LatencyR": "000:00:41",
+          "Messages received": -1,
+          "First message": "15/12/2019_18:52:32"
+        },
+        {
+          "id": "map2",
+          "ProgressP3": 100,
+          "First rescue": "15/12/2019_19:16:32",
+          "First full rescue": "15/12/2019_19:33:45",
+          "Rescue": 5,
+          "LatencyR": "000:17:21",
+          "Messages received": -1,
+          "First message": "15/12/2019_19:16:24"
+        },
+        {
+          "id": "map3",
+          "ProgressP3": 80,
+          "First rescue": "15/12/2019_20:18:03",
+          "First full rescue": "",
+          "Rescue": 4,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "15/12/2019_20:10:29"
+        },
+        {
+          "id": "map4",
+          "ProgressP3": 80,
+          "First rescue": "15/12/2019_19:47:47",
+          "First full rescue": "",
+          "Rescue": 6,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "15/12/2019_19:36:05"
+        },
+        {
+          "id": "map5",
+          "ProgressP3": 80,
+          "First rescue": "17/12/2019_14:37:42",
+          "First full rescue": "",
+          "Rescue": 2,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "15/12/2019_20:01:54"
+        }
+      ]
+    },
+    {
+      "id": "Grupo J",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": 20,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "19/12/2019_01:57:52"
+        },
+        {
+          "id": "map1",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        },
+        {
+          "id": "map2",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        },
+        {
+          "id": "map3",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        },
+        {
+          "id": "map4",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        },
+        {
+          "id": "map5",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        }
+      ]
+    },
+    {
+      "id": "Grupo E",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": 100,
+          "First rescue": "13/12/2019_14:44:45",
+          "First full rescue": "18/12/2019_09:40:58",
+          "Rescue": 4,
+          "LatencyR": "375:55:58",
+          "Messages received": -1,
+          "First message": "02/12/2019_17:45:00"
+        },
+        {
+          "id": "map1",
+          "ProgressP3": 100,
+          "First rescue": "18/12/2019_12:44:48",
+          "First full rescue": "18/12/2019_14:32:42",
+          "Rescue": 5,
+          "LatencyR": "362:22:12",
+          "Messages received": -1,
+          "First message": "03/12/2019_12:10:30"
+        },
+        {
+          "id": "map2",
+          "ProgressP3": 100,
+          "First rescue": "18/12/2019_14:44:01",
+          "First full rescue": "18/12/2019_14:54:46",
+          "Rescue": 5,
+          "LatencyR": "002:35:15",
+          "Messages received": -1,
+          "First message": "18/12/2019_12:19:31"
+        },
+        {
+          "id": "map3",
+          "ProgressP3": 100,
+          "First rescue": "18/12/2019_15:05:14",
+          "First full rescue": "18/12/2019_16:41:42",
+          "Rescue": 6,
+          "LatencyR": "001:45:20",
+          "Messages received": -1,
+          "First message": "18/12/2019_14:56:22"
+        },
+        {
+          "id": "map4",
+          "ProgressP3": 100,
+          "First rescue": "18/12/2019_16:43:22",
+          "First full rescue": "18/12/2019_16:50:08",
+          "Rescue": 8,
+          "LatencyR": "000:07:23",
+          "Messages received": -1,
+          "First message": "18/12/2019_16:42:45"
+        },
+        {
+          "id": "map5",
+          "ProgressP3": 80,
+          "First rescue": "18/12/2019_16:52:05",
+          "First full rescue": "",
+          "Rescue": 6,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "18/12/2019_16:51:08"
+        }
+      ]
+    },
+    {
+      "id": "Grupo A",
+      "data": [
+        {
+          "id": "map0",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        },
+        {
+          "id": "map1",
+          "ProgressP3": 20,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": "05/12/2019_14:02:04"
+        },
+        {
+          "id": "map2",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        },
+        {
+          "id": "map3",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        },
+        {
+          "id": "map4",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        },
+        {
+          "id": "map5",
+          "ProgressP3": -1,
+          "First rescue": "",
+          "First full rescue": "",
+          "Rescue": -1,
+          "LatencyR": "",
+          "Messages received": -1,
+          "First message": ""
+        }
+      ]
+    }
+  ]
+}

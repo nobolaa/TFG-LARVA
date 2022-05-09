@@ -1,0 +1,92 @@
+{% extends 'vista/base.html' %}
+
+{% block css %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="css/formularios.css"/>
+{% endblock %}
+
+
+{% block cabecera %}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+            <a href="#" onclick="return dopost('index.php');" class="brand-logo center"><img src="img/larva_files/logo.png" id="logo"></a> 
+            
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Años anteriores</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+
+    
+{% block contenido %}
+    <div id="caja" class="container">
+        <div id="sub-caja" class="row">
+            <div class="collection-header">
+                <h3 id="titulo-caja">Nuevo Hito Complejo</h3>
+            </div>
+            <form id="formulario" class="col s12 grey lighten-5" action="index.php" method="POST" enctype="multipart/form-data">
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">title</i>
+                        <input id="idHito" name="idHito" type="text"" class="validate">
+                        <label for=idHito>Identificador del Hito</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">sync</i>
+                        <select id="actualizacion" name="actualizacion">
+                            <option value="" disabled selected>Elige la condición de actualización</option>
+                            <option value="min">Mínimo</option>
+                            <option value="max">Máximo</option>
+                            <option value="add">Acumulación</option>
+                            <option value="diff">Diferencia</option>
+                            <option value="set">Set</option>
+                        </select>
+                        <label for="actualizacion">Criterio de Actualización</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">sort_by_alpha</i>
+                        <select id="tipo" name="tipo">
+                            <option value="" disabled selected>Elige el tipo de dato</option>
+                            <option value="date">Fecha</option>
+                            <option value="time">Tiempo</option>
+                            <option value="number">Número</option>
+                            <option value="text">Texto</option>
+                        </select>
+                        <label for="tipo">Tipo</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">chrome_reader_mode</i> 
+                        <textarea id="descripcion" name="descripcion" type="textarea" placeholder="Escribe la descripción..." cols="50" rows="5"></textarea>
+                        <label for="descripcion">Descripción</label>
+                    </div>
+
+                    <input type="hidden" name="pagina" value="Modificar Hito Complejo 2">
+                    <input type="hidden" name="crear_hito_complejo" value="true">
+                    <input type="hidden" name="idConfiguracion" value="{{idConfiguracion}}">
+                    <input type="hidden" name="clase" value="Complejo">
+                    <button id="boton-crear" class="light-blue lighten-2 btn waves-effect waves-light center" type="submit" name="action">Crear</button>
+                    <button onclick="dopost('index.php', {pagina:'Administrar Hitos', idConfiguracion:'{{idConfiguracion}}'});return false;" id="boton-crear" type="button" class="red lighten-2 btn waves-effect waves-light center">Cancelar</button>
+                </div> 
+            </form>
+        </div>
+    </div>
+
+    <!--boton cerrar sesion-->
+    <div id="boton-cerrar-sesion" class="fixed-action-btn">
+        <a href="#" onclick="return dopost('index.php', {cerrar_sesion:'true'});" class="btn-floating btn-large red darken-3">
+            <i class="large material-icons">power_settings_new</i>
+        </a>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="js/formularios.js"></script>
+{% endblock %}

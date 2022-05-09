@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    {% block css %}
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        
+        <!--Icono en la pestaña-->
+		<link rel="shortcut icon" href="img/larva_files/icono.png" type="image/png">
+		<!--Titulo en la pestaña-->
+        <title>Larva</title>
+        
+        <!--css Propio-->
+        <link type="text/css" rel="stylesheet" href="css/base.css"/>
+
+    {% endblock %}
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+
+{% block linea_body %}
+<body>
+{% endblock %}
+
+    {% block cabecera %}
+    {% endblock %}
+
+    {% block contenido %}
+    {% endblock %}
+
+    {% block js %}
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/base.js"></script>
+    {% endblock %}
+</body>
+</html>

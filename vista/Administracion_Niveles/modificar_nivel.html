@@ -1,0 +1,94 @@
+{% extends 'vista/base.html' %}
+
+{% block css %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="css/formularios.css"/>
+{% endblock %}
+
+
+{% block cabecera %}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+            <a href="#" onclick="return dopost('index.php');" class="brand-logo center"><img src="img/larva_files/logo.png" id="logo"></a> 
+            
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Años anteriores</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+
+    
+{% block contenido %}
+    <div id="caja" class="container">
+        <div id="sub-caja" class="row">
+            <div class="collection-header">
+                <h3 id="titulo-caja">Modificar Nivel</h3>
+            </div>
+            <form id="formulario" class="col s12 grey lighten-5" action="index.php" method="POST" enctype="multipart/form-data">
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">title</i>
+                        <input disabled id="idNivel" name="idNivel" type="text" class="validate" value="{{nivel.idNivel}}">
+                        <label for="idNivel">Identificador del Nivel</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">school</i>
+                        <select id="dificultad" name="dificultad">
+                            {% if nivel.dificultad == 'facil' %}
+                            <option value="facil" selected="selected">Fácil</option>
+                            <option value="normal">Medio</option>
+                            <option value="dificil">Difícil</option>
+                            <option value="extremo">Extremo</option>
+                            {% elseif nivel.dificultad == 'normal' %}
+                            <option value="facil">Fácil</option>
+                            <option value="normal" selected="selected">Medio</option>
+                            <option value="dificil">Difícil</option>
+                            <option value="extremo">Extremo</option>
+                            {% elseif nivel.dificultad == 'dificil' %}
+                            <option value="facil">Fácil</option>
+                            <option value="normal">Medio</option>
+                            <option value="dificil" selected="selected">Difícil</option>
+                            <option value="extremo">Extremo</option>
+                            {% else %}
+                            <option value="facil">Fácil</option>
+                            <option value="normal">Medio</option>
+                            <option value="dificil">Difícil</option>
+                            <option value="extremo" selected="selected">Extremo</option>
+                            {% endif %}
+                        </select>
+                        <label for="dificultad">Dificultad</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">chrome_reader_mode</i> 
+                        <textarea id="descripcion" name="descripcion" type="textarea" placeholder="Escribe la descripción..." cols="50" rows="5">{{nivel.descripcion}}</textarea>
+                        <label for="descripcion">Descripción</label>
+                    </div>
+
+                    <input type="hidden" name="pagina" value="Administrar Niveles">
+                    <input type="hidden" name="modificar_nivel" value="true">
+                    <input type="hidden" name="idConfiguracion" value="{{idConfiguracion}}">
+                    <input type="hidden" name="idNivel" value="{{nivel.idNivel}}">
+                    <button id="boton-crear" class="light-blue lighten-2 btn waves-effect waves-light center" type="submit" name="action">Modificar</button>
+                    <button onclick="dopost('index.php', {pagina:'Administrar Niveles', idConfiguracion:'{{idConfiguracion}}'});return false;" id="boton-crear" type="button" class="red lighten-2 btn waves-effect waves-light center">Cancelar</button>
+                </div> 
+            </form>
+        </div>
+    </div>
+
+    <!--boton cerrar sesion-->
+    <div id="boton-cerrar-sesion" class="fixed-action-btn">
+        <a href="#" onclick="return dopost('index.php', {cerrar_sesion:'true'});" class="btn-floating btn-large red darken-3">
+            <i class="large material-icons">power_settings_new</i>
+        </a>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="js/formularios.js"></script>
+{% endblock %}

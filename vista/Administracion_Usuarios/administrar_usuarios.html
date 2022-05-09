@@ -1,0 +1,100 @@
+{% extends 'vista/base.html' %}
+
+{% block css %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="css/eleccion_proyectos.css"/>
+{% endblock %}
+
+
+{% block cabecera %}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+            <a href="#" onclick="return dopost('index.php');" class="brand-logo center"><img src="img/larva_files/logo.png" id="logo"></a> 
+            
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Años anteriores</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+
+    
+{% block contenido %}
+    <div id="caja" class="container">
+        <ul id="lista-proyectos" class="collection">
+
+            <!-- Titulo -->
+            <div class="collection-header">
+                <h3 id="titulo-caja">
+                    
+                    Administración Usuarios
+
+                    <a href="#" onclick="return dopost('index.php', {pagina:'Crear Usuario'});" class="boton-crear btn-floating pink darken-4 pulse tooltipped" data-position="right" data-tooltip="Crear Usuario" >
+                        <i class="large material-icons">add</i>
+                    </a>
+
+                </h3>
+            </div>
+
+            <nav>
+                <div class="nav-wrapper blue-grey darken-2">
+                  <form onSubmit="return false;">
+                    <div class="input-field">
+                      <input id="txt-busqueda" type="search" autocomplete="off" onkeyup="filtrar({pagina:'Administrar Usuarios', filtrar:'Usuarios', filtro:this.value});"/>
+                      <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                      <i onclick="borrarTxtBusqueda();" class="material-icons">close</i>
+                    </div>
+                  </form>
+                </div>
+            </nav>
+
+            <div id="listado">
+            {% for user in usuarios %}
+            <div class="caja-item collection-item black-text hvr-fade">
+                <div class="caja-proyecto row valign-wrapper">
+                    <div class="col s3 m1">
+                        <img src="img/administracion/usuario.jpg" alt="" class="responsive-img circle">
+                    </div>
+                    <div class="col s9 m11">   
+                        <div class="botones">   
+                            <a href="#" onclick="return dopost('index.php', {pagina:'Modificar Usuario', correo:'{{user.correo}}'});" class="boton btn-floating btn-small blue darken-3">
+                                <i class="large material-icons">edit</i>
+                            </a>
+                            <a href="#" onclick="return dopost('index.php', {pagina:'Administrar Usuarios', borrar_usuario:'true', correo:'{{user.correo}}'});" class="boton btn-floating btn-small red darken-3">
+                                <i class="large material-icons">delete_forever</i>
+                            </a>
+                        </div>
+                        <span class="titulo-proyecto">{{user.usuario}} {{" "}} - {{" "}} {{user.dni}} </span>
+                        <p class="info-proyecto">{{user.correo}}</br>
+                            Cursos: {{" "}} {{user.cursos}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        </ul> 
+
+        <a href="#" onclick="return dopost('index.php');" class="boton-siguiente btn-floating btn-large grey darken-4 pulse">
+            <i class="large material-icons">check</i>
+        </a>       
+        
+        <a href="#" onclick="return dopost('index.php');" class="boton-atras btn-floating btn-large grey darken-4">
+            <i class="large material-icons">arrow_back</i>
+        </a>
+    </div>
+
+
+    <!--boton cerrar sesion-->
+    <div id="boton-cerrar-sesion" class="fixed-action-btn">
+        <a href="#" onclick="return dopost('index.php', {cerrar_sesion:'true'});" class="btn-floating btn-large red darken-3">
+            <i class="large material-icons">power_settings_new</i>
+        </a>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="js/eleccion_proyectos.js"></script>
+{% endblock %}

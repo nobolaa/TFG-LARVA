@@ -1,0 +1,83 @@
+{% extends 'vista/base.html' %}
+
+{% block css %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="css/eleccion_proyectos.css"/>
+{% endblock %}
+
+
+{% block cabecera %}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+            <a href="#" onclick="return dopost('index.php');" class="brand-logo center"><img src="img/larva_files/logo.png" id="logo"></a> 
+            
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Años anteriores</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+
+    
+{% block contenido %} 
+    <div id="caja" class="container">
+        <ul id="lista-proyectos" class="collection">
+
+            <!-- Titulo -->
+            <div class="collection-header">
+                <h3 id="titulo-caja">
+                    Insignias relacionadas con "{{idHito}}"
+                    
+                    <a href="#" onclick="return dopost('index.php', {pagina:'Crear Insignia', idConfiguracion:'{{idConfiguracion}}', idHito:'{{idHito}}'});" class="boton-crear btn-floating pink darken-4 pulse tooltipped" data-position="top" data-tooltip="Crear Insignia" >
+                        <i class="large material-icons">add</i>
+                    </a>
+
+                    <a href="#" onclick="return dopost('index.php', {pagina:'Listado Insignias', idConfiguracion:'{{idConfiguracion}}', idHito:'{{idHito}}'});" class="boton-crear btn-floating  green darken-2  pulse tooltipped" data-position="top" data-tooltip="Reutilizar Insignia">
+                        <i class="large material-icons">history</i>
+                    </a>
+                </h3>
+            </div>
+            
+            {% for insignia in insignias %}
+            <div class="caja-item collection-item black-text hvr-fade">
+                <div class="caja-proyecto row valign-wrapper">
+                    <div class="col s3 m1">
+                        <img src="{{insignia.imagen}}" alt="" class="responsive-img circle">
+                    </div>
+                    <div class="col s9 m11">      
+                        <div class="botones">              
+                            <a href="#" onclick="return dopost('index.php', {pagina:'Modificar Insignia', idConfiguracion:'{{idConfiguracion}}', idHito:'{{idHito}}', idInsignia:'{{insignia.idInsignia}}'});" class="boton btn-floating btn-small blue darken-3">
+                                <i class="large material-icons">edit</i>
+                            </a>
+                            <a href="#" onclick="return dopost('index.php', {pagina:'Listado Insignias Hito', borrar_relacion:'true', idConfiguracion:'{{idConfiguracion}}', idHito:'{{idHito}}', idInsignia:'{{insignia.idInsignia}}'});" class="boton btn-floating btn-small red darken-3">
+                                <i class="large material-icons">clear</i>
+                            </a>
+                        </div> 
+                        <span class="titulo-proyecto">{{insignia.idInsignia}}</span>
+                        <p class="info-proyecto">{{insignia.seleccion}}</br>
+                        {{insignia.descripcion}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </ul> 
+
+        <a href="#" onclick="return dopost('index.php', {pagina:'Administrar Insignias', idConfiguracion:'{{idConfiguracion}}', idHito:'{{idHito}}'});" class="boton-siguiente btn-floating btn-large grey darken-4 pulse">
+            <i class="large material-icons">arrow_back</i>
+        </a>
+    </div>
+
+    <div id="boton-cerrar-sesion" class="fixed-action-btn">
+        <a href="#" onclick="return dopost('index.php', {cerrar_sesion:'true'});" class="btn-floating btn-large red darken-3">
+            <i class="large material-icons">power_settings_new</i>
+        </a>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="js/eleccion_proyectos.js"></script>
+{% endblock %}
+                          

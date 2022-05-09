@@ -1,0 +1,105 @@
+{% extends 'vista/base.html' %}
+
+{% block css %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="css/eleccion_proyectos.css"/>
+{% endblock %}
+
+
+{% block cabecera %}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+            <a href="#" onclick="return dopost('index.php');" class="brand-logo center"><img src="img/larva_files/logo.png" id="logo"></a> 
+            
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Años anteriores</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+
+    
+{% block contenido %}
+    <div id="caja" class="container">
+        <ul id="lista-proyectos" class="collection">
+
+            <!-- Titulo -->
+            <div class="collection-header">
+                <h3 id="titulo-caja">
+                    
+                    Hitos Asociados
+
+                    <a href="#!" onclick="return dopost('index.php', {pagina:'Crear Hito', idConfiguracion:'{{idConfiguracion}}'});" class="boton-crear btn-floating pink darken-4 pulse tooltipped" data-position="top" data-tooltip="Hito Normal" >
+                        <i class="large material-icons">add</i>
+                    </a>
+
+                    <a href="#!" onclick="return dopost('index.php', {pagina:'Crear Hito Autocalculable', idConfiguracion:'{{idConfiguracion}}'});" class="boton-crear btn-floating  purple darken-3  pulse tooltipped" data-position="top" data-tooltip="Hito Autocalculable">
+                        <i class="large material-icons">control_point_duplicate</i>
+                    </a>
+                    
+                    <a href="#!" onclick="return dopost('index.php', {pagina:'Crear Hito Complejo', idConfiguracion:'{{idConfiguracion}}'});" class="boton-crear btn-floating  deep-purple darken-3  pulse tooltipped" data-position="top" data-tooltip="Hito Complejo">
+                        <i class="large material-icons">radio_button_checked</i>
+                    </a>
+                    
+                    <a href="#!" onclick="return dopost('index.php', {pagina:'Listado Hitos', idConfiguracion:'{{idConfiguracion}}'});" class="boton-crear btn-floating  green darken-2  pulse tooltipped" data-position="top" data-tooltip="Reutilizar Hito">
+                        <i class="large material-icons">history</i>
+                    </a>
+                    
+                </h3>
+                
+                
+            </div>
+                 
+            {% for hito in hitos %}
+            <div class="caja-item collection-item black-text hvr-fade">
+                <div class="caja-proyecto row valign-wrapper">
+                    <div class="col s3 m1">
+                        <img src="img/administracion/hito.jpg" alt="" class="responsive-img circle">
+                    </div>
+                    <div class="col s9 m11">      
+                        <div class="botones">
+                            {% if hito.clase == 'Normal' %}             
+                            <a href="#!" onclick="return dopost('index.php', {pagina:'Modificar Hito', idHito:'{{hito.idHito}}', idConfiguracion:'{{idConfiguracion}}'});" class="boton btn-floating btn-small blue darken-3">
+                            {% elseif hito.clase == 'Autocalculable' %}            
+                            <a href="#!" onclick="return dopost('index.php', {pagina:'Modificar Hito Autocalculable 1', idHito:'{{hito.idHito}}', idConfiguracion:'{{idConfiguracion}}'});" class="boton btn-floating btn-small blue darken-3">
+                            {% else %}            
+                            <a href="#!" onclick="return dopost('index.php', {pagina:'Modificar Hito Complejo 1', idHito:'{{hito.idHito}}', idConfiguracion:'{{idConfiguracion}}'});" class="boton btn-floating btn-small blue darken-3">
+                            {% endif %}                                
+                                <i class="large material-icons">edit</i>
+                            </a>
+                            <a href="#!" onclick="return dopost('index.php', {pagina:'Administrar Hitos', borrar_relacion:'true', idHito:'{{hito.idHito}}', idConfiguracion:'{{idConfiguracion}}'});" class="boton btn-floating btn-small red darken-3">
+                                <i class="large material-icons">clear</i>
+                            </a>
+                        </div> 
+                        <span class="titulo-proyecto">{{hito.idHito}} - <a class="clase-hito">{{hito.clase}}</a></span>
+                        <p class="info-proyecto">{{hito.tipo}} </br>
+                        {{hito.descripcion}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </ul> 
+
+        <a href="#!" onclick="return dopost('index.php', {pagina:'Administrar Insignias', idConfiguracion:'{{idConfiguracion}}'});" class="boton-siguiente btn-floating btn-large grey darken-4 pulse">
+            <i class="large material-icons">arrow_forward</i>
+        </a>
+
+        <a href="#" onclick="return dopost('index.php', {pagina:'Administrar Niveles', idConfiguracion:'{{idConfiguracion}}'});" class="boton-atras btn-floating btn-large grey darken-4">
+            <i class="large material-icons">arrow_back</i>
+        </a>
+    </div>
+
+    <!--boton cerrar sesion-->
+    <div id="boton-cerrar-sesion" class="fixed-action-btn">
+        <a href="#" onclick="return dopost('index.php', {cerrar_sesion:'true'});" class="btn-floating btn-large red darken-3">
+            <i class="large material-icons">power_settings_new</i>
+        </a>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="js/eleccion_proyectos.js"></script>
+{% endblock %}

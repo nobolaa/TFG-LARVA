@@ -1,0 +1,226 @@
+{%  extends './vista/base.html' %}
+
+{% block css %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="css/estadisticas.css"/>
+{% endblock %}
+
+{% block linea_body %}
+<body onresize="renderizar('3', '{{usuario.tipo}}', '{{usuario.usuario}}');" onload="renderizar('3', '{{usuario.tipo}}', '{{usuario.usuario}}');">
+{% endblock %}
+
+
+{% block cabecera %}    
+    <!--Menu de ayuda-->
+    <ul id="dropdown-ayuda" class="dropdown-content center hide-on-med-and-down">
+        <li><a href="#" class="grey darken-2 white-text" onclick="desplegarAyuda('ayuda-resumen')">¿De qué va?</a></li>
+        <li id="linea-entre-ayuda" class="divider grey"></li>
+        <li><a href="#" class="grey darken-2 white-text" onclick="desplegarAyuda('ayuda-progreso')">Barras de Progreso</a></li>
+        <li id="linea-entre-ayuda" class="divider grey"></li>
+        <li><a href="#" class="grey darken-2 white-text" onclick="desplegarAyuda('ayuda-insignias')">Insignias</a></li>
+    </ul>
+
+    <!--Barra de navegacion-->
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+            <a href="index.php" class="brand-logo"><img src="img/larva_files/logo.png" id="logo"></a> 
+            <span id="txt-logo" class="brand-logo hide-on-med-and-down" data-target="dropdown-logo">DBA {{ " ~ " }} {{proyecto.titulo}}</span>
+            
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="#">Años anteriores</a></li>
+                <li><a id="txt-ayuda" class="dropdown-trigger" data-target="dropdown-ayuda">Ayuda<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+
+{% block contenido %}
+    <!-- Boton accesso rapido a grupos -->
+    {% if proyecto.tipo == 'Grupal' %}
+    <div id="boton-grupos" class="fixed-action-btn toolbar">
+        <a class="btn-floating btn-large grey darken-3">
+            <i class="large material-icons">search</i>
+        </a>
+        
+        <ul id="busqueda_rapida">
+            {% for grupo in grupos %}
+
+                {% if loop.index == 1 %}
+                    <li><a id="{{datos[0].grupo}}" href="#grupo-{{datos[0].grupo}}" class="atajo-grupo btn-floating grey darken-3">Grupo {{" "}} {{datos[0].grupo}}</a></li>
+                {% else %}
+                    <li><a id="{{loop.index}}" href="#grupo-{{loop.index}}" class="atajo-grupo btn-floating grey darken-3">Grupo {{" "}} {{loop.index}}</a></li>
+                {% endif %}
+
+            {% endfor %}
+        </ul> 
+    </div>
+    {% endif %}
+
+    <!-- Boton interrogacion --> 
+    <div class="fixed-action-btn hide-on-med-and-down">
+        <a id="menu" class="waves-effect waves-light btn btn-floating grey darken-3" ><i class="material-icons">help</i></a>
+    </div>
+
+    <!-- Informacion de ayuda -->
+    <div class="tap-target grey darken-4 white-text" data-target="menu">
+        <div class="tap-target-content">
+
+            <!-- Resumen -->
+            <div id="ayuda-resumen" class="center-align">
+                <h3>Descripción</h3>
+                <div>
+                    {{ proyecto.descripcion }}
+                </div>
+            </div>
+
+            <!-- Información progreso -->
+            <div id="ayuda-progreso">
+
+                <h3 class="titulo-ayuda">Progreso</h3>
+
+                {% for escala in progreso %}
+                <div id="ayuda-progreso-{{loop.index}}" class="row valign-wrapper" {%if loop.index > '2' %} style="display: none" {% endif %}>
+                    <div class="col s2">
+                        <img src="{{escala.imagen}}" alt="" class="insignia circle"> <!-- notice the "circle" class -->
+                    </div>
+                    <div class="info-insignia col s10">
+                        {{ escala.descripcion }}
+                    </div>
+                </div>
+                {% endfor %}
+
+                <a id="boton-siguiente" class="waves-effect waves-light btn btn-floating grey darken-3 right" onclick="siguienteAyudaProgreso('{{progreso|length}}')"><i class="material-icons">keyboard_arrow_right</i></a>
+    
+            </div>
+            
+            <!-- Información insignias -->
+            <div id="ayuda-insignias">
+
+                <h3 class="titulo-ayuda">Insignias</h3>
+
+                {% for insignia in insignias %}
+                <div id="ayuda-insignias-{{loop.index}}" class="row valign-wrapper" {%if loop.index > '2' %} style="display: none" {% endif %}>
+                    <div class="col s2">
+                      <img src="{{insignia.imagen}}" alt="" class="insignia circle"> <!-- notice the "circle" class -->
+                    </div>
+                    <div class="info-insignia col s10">
+                        {{ insignia.descripcion }}
+                    </div>
+                </div>
+                {% endfor %}
+
+                <a id="boton-siguiente" class="waves-effect waves-light btn btn-floating grey darken-3 right" onclick="siguienteAyudaInsignias('{{insignias|length}}')"><i class="material-icons">keyboard_arrow_right</i></a>
+    
+            </div>
+
+        </div>
+    </div>
+
+    <div id="contenedor" class="container">
+    
+        <!-- Resto de datos -->
+        {% for grupo in datos %}
+
+        {% set indice = loop.index %}
+
+        {% if indice == '1' %}
+        <div id="grupo-{{grupo.grupo}}" class="grupo row">
+            <div class="titulo-grupo col s12 l2 center-align">
+                {% if proyecto.tipo == 'Individual' %}
+                <h3>
+                {% else %}
+                <h3>Grupo<br>
+                {% endif %}
+                {{" "}}{{grupo.grupo}}{{" "}}</h3>
+            </div>
+        {% else %}
+        <div id="grupo-{{loop.index}}" class="grupo row">
+            
+            <div class="titulo-grupo col s12 l2 center-align">
+                {% if proyecto.tipo == 'Individual' %}
+                <h3>Partícipe<br>
+                {% else %}
+                <h3>Grupo<br>
+                {% endif %}
+                {{" "}}{{indice}}{{" "}}</h3>
+            </div>
+        {% endif %}
+
+            <div class="col s12 l10">
+
+                <div class="row row-entre-mapas">
+                    {% for dato in grupo.datos %}
+                        {% if loop.index0 is divisible by(5) and loop.index0!=0 %}
+                </div>
+                <div class="row row-final">
+                        {% endif %}
+                        <div id="tabla" class="col s12 l2 center-align nivel nivel-{{dato.dificultad}}">
+                            <div class="pricing-table-header nivel-header-{{dato.dificultad}}">
+                                <h3 title="{{dato.descripcion}}">{{dato.nombre}}</h3> 
+                                {% if indice == '1' %}
+                                <a class="boton-desplegar btn halfway-fab waves-effect waves-light blue-grey darken-4 z-depth-1 right tooltipped" data-position="right" data-tooltip="Ver más información"" onclick="desplegar('{{grupo.grupo}}{{loop.index}}')"><i id="boton-{{grupo.grupo}}{{loop.index}}" class="material-icons">add</i></a>
+                                {% else %} 
+                                <a class="boton-desplegar btn halfway-fab waves-effect waves-light blue-grey darken-4 z-depth-1 right tooltipped" data-position="right" data-tooltip="Ver más información"" onclick="desplegar('{{indice}}{{loop.index}}')"><i id="boton-{{indice}}{{loop.index}}" class="material-icons">add</i></a>
+                                {% endif %}
+                            </div>
+                        
+                            {% if indice == '1' %}
+                            <ul id="{{grupo.grupo}}{{loop.index}}" class="caja-datos collapsible z-depth-0">
+                            {% else %}
+                            <ul id="{{indice}}{{loop.index}}" class="caja-datos collapsible z-depth-0">
+                            {% endif %}
+                                <li>
+                                    <div class="caja-datos collapsible-body"> 
+                                        <div class="pricing-table-features">
+                                            {{dato.informacion|raw}}
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+    
+                            <div class="center-align caja-insignias">
+                                <div class="col s12">
+                                    <img src="{{dato.imagenProgreso}}" alt="" class="circle responsive-img insignia">
+                                </div>
+                                <div id="insignias" class="col s12">
+                                    {% for insignia in dato.insignias %}
+                                    <img src="{{insignia.imagen}}" alt="{{insignia.idInsignia}}" title="{{insignia.descripcion}}" class="circle responsive-img insignia">
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>   
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+
+        {% if loop.index != loop.length %}
+        <div id="linea-entre-grupos" class="divider black darken-1"></div>
+        {% endif %}
+
+        {% endfor %}
+
+        <!--boton cerrar sesion-->
+        
+        {% if proyecto.tipo == 'Individual' %}
+        <div id="boton-cerrar-sesion" class="fixed-action-btn">
+        {% else %}
+        <div id="boton-cerrar-sesion-arriba" class="fixed-action-btn">
+        {% endif %}
+            <a href="#" onclick="return dopost('index.php', {cerrar_sesion:'true'});" class="btn-floating btn-large red darken-3">
+                <i class="large material-icons">power_settings_new</i>
+            </a>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="js/estadisticas.js"></script>
+{% endblock %}

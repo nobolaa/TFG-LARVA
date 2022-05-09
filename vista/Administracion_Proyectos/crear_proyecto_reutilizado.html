@@ -1,0 +1,139 @@
+{% extends 'vista/base.html' %}
+
+{% block css %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="css/formularios.css"/>
+{% endblock %}
+
+
+{% block cabecera %}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+            <a href="#" onclick="return dopost('index.php');" class="brand-logo center"><img src="img/larva_files/logo.png" id="logo"></a> 
+            
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Años anteriores</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+
+    
+{% block contenido %}
+    <div id="caja" class="container">
+        <div id="sub-caja" class="row">
+            <div class="collection-header">
+                <h3 id="titulo-caja">Nuevo Proyecto</h3>
+            </div>
+            <form id="formulario" class="col s12 grey lighten-5" action="index.php" method="POST" enctype="multipart/form-data">
+                <div class="row">
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">alarm_on</i>
+                        <input id="fecha_inicio" name="fecha_inicio" type="text" class="datepicker">
+                        <label for="fecha_inicio">Fecha de Comienzo</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">alarm_off</i>
+                        <input id="fecha_fin" name="fecha_fin" type="text" class="datepicker">
+                        <label for="fecha_fin">Fecha de Entrega</label>
+                    </div>
+
+                    <div class="input-field col s12 m12">
+                        <i class="material-icons prefix">local_library</i>
+                        <input id="curso_academico" name="curso_academico" type="text" class="validate"">
+                        <label for="curso_academico">Curso</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">title</i>
+                        <input disabled id="titulo" name="titulo" type="text"" class="validate" value="{{configuracion.titulo}}">
+                        <label for="titulo">Titulo</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">school</i>
+                        <select disabled id="asignatura" name="asignatura">
+                            <option value="" disabled>Elige la asignatura</option>
+                            {% if configuracion.asignatura == 'DBA' %}
+                            <option value="DBA" selected="selected">Desarrollo Basado en Agentes</option>
+                            <option value="MP" >Metodología de la Programación</option>
+                            {% else %}
+                            <option value="DBA">Desarrollo Basado en Agentes</option>
+                            <option value="MP" selected="selected">Metodología de la Programación</option>
+                            {% endif %}
+                        </select>
+                        <label for="asignatura">Asignatura</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input disabled id="autor" name="autor" type="text" class="validate" value="{{configuracion.autor}}">
+                        <label for="autor">Autor</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">contact_mail</i>
+                        <input disabled id="email" name="email" type="email" class="validate" value="{{configuracion.email}}">
+                        <label for="email">Email</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">drag_handle</i><!--event_note -->
+                        <input disabled id="resumen" name="resumen" type="text" class="validate" value="{{configuracion.resumen}}">
+                        <label for="resumen">Resumen</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">chrome_reader_mode</i> 
+                        <textarea disabled id="descripcion" name="descripcion" type="textarea" placeholder="Escribe la descripción..." cols="50" rows="5">{{configuracion.descripcion}}</textarea>
+                        <label for="descripcion">Descripción</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">add_a_photo</i> 
+                        <input disabled type="file" id="imagen" name="imagen" accept="image/png, image/jpeg">
+                        <label id="label-imagen" for="imagen">Selecciona una imagen para la práctica:</label>
+                    </div>  
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">group</i><!--group-->
+                        <select disabled id="tipo" name="tipo">
+                            {% if configuracion.tipo == 'Grupal' %}
+                            <option value="Grupal" selected="selected">Grupal</option>
+                            <option value="Individual" >Individual</option>
+                            {% else %}
+                            <option value="Grupal">Grupal</option>
+                            <option value="Individual" selected="selected">Individual</option>
+                            {% endif %}
+                        </select>
+                        <label for="tipo">Tipo</label>
+                    </div>
+
+                    <input type="hidden" name="pagina" value="Administrar Proyectos">
+                    <input type="hidden" name="crear_proyecto" value="true">
+                    <input type="hidden" name="idConfiguracion" value="{{configuracion.idConfig}}">
+                    <button id="boton-crear" class="light-blue lighten-2 btn waves-effect waves-light center" type="submit" name="action">Crear</button>
+                    <button onclick="dopost('index.php', {pagina:'Crear Proyecto'});return false;" id="boton-crear" type="button" class="red lighten-2 btn waves-effect waves-light center">Cancelar</button>
+                </div> 
+            </form>
+        </div>
+    </div>
+
+    <!--boton cerrar sesion-->
+    <div id="boton-cerrar-sesion" class="fixed-action-btn">
+        <a href="#" onclick="return dopost('index.php', {cerrar_sesion:'true'});" class="btn-floating btn-large red darken-3">
+            <i class="large material-icons">power_settings_new</i>
+        </a>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="js/formularios.js"></script>
+{% endblock %}
+
+

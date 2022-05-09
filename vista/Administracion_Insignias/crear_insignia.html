@@ -1,0 +1,84 @@
+
+{% extends 'vista/base.html' %}
+
+{% block css %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="css/formularios.css"/>
+{% endblock %}
+
+
+{% block cabecera %}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+            <a href="#" onclick="return dopost('index.php');" class="brand-logo center"><img src="img/larva_files/logo.png" id="logo"></a> 
+            
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Años anteriores</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+
+    
+{% block contenido %}
+    <div id="caja" class="container">
+        <div id="sub-caja" class="row">
+            <div class="collection-header">
+                <h3 id="titulo-caja">Nueva Insignia</h3>
+            </div>
+            <form id="formulario" class="col s12 grey lighten-5" action="index.php" method="POST" enctype="multipart/form-data">
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">title</i>
+                        <input id="idInsignia" name="idInsignia" type="text"" class="validate">
+                        <label for=idInsignia>Identificador de la Insignia</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">sync</i>
+                        <select id="seleccion" name="seleccion">
+                            <option value="" disabled selected>Elige la condición de elección</option>
+                            <option value="min">Mínimo</option>
+                            <option value="max">Máximo</option>
+                        </select>
+                        <label for="seleccion">Criterio de Elección</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">add_a_photo</i> 
+                        <input type="file" id="imagen" name="imagen" accept="image/png, image/jpeg">
+                        <label id="label-imagen" for="imagen">Selecciona una imagen para la insignia</label>
+                    </div> 
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">chrome_reader_mode</i> 
+                        <textarea id="descripcion" name="descripcion" type="textarea" placeholder="Escribe la descripción..." cols="50" rows="5"></textarea>
+                        <label for="descripcion">Descripción</label>
+                    </div>
+
+                    <input type="hidden" name="pagina" value="Listado Insignias Hito">
+                    <input type="hidden" name="crear_insignia" value="true">
+                    <input type="hidden" name="idConfiguracion" value="{{idConfiguracion}}">
+                    <input type="hidden" name="idHito" value="{{idHito}}">
+                    <button id="boton-crear" class="light-blue lighten-2 btn waves-effect waves-light center" type="submit" name="action">Crear</button>
+                    <button onclick="return dopost('index.php', {pagina:'Listado Insignias Hito', idConfiguracion:'{{idConfiguracion}}', idHito:'{{idHito}}'});" return false;" id="boton-crear" type="button" class="red lighten-2 btn waves-effect waves-light center">Cancelar</button>
+                </div> 
+            </form>
+        </div>
+    </div>
+    <!--boton cerrar sesion-->
+    <div id="boton-cerrar-sesion" class="fixed-action-btn">
+        <a href="#" onclick="return dopost('index.php', {cerrar_sesion:'true'});" class="btn-floating btn-large red darken-3">
+            <i class="large material-icons">power_settings_new</i>
+        </a>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="js/formularios.js"></script>
+{% endblock %}
+

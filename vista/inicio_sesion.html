@@ -1,0 +1,60 @@
+{%  extends './vista/base.html' %}
+
+{% block css %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="css/inicio_sesion.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+
+{% block cabecera %}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+                <a href="#" onclick="return dopost('index.php');"  class="brand-logo center"><img src="img/larva_files/logo.png" id="logo"></a> 
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+
+
+{% block contenido %}
+<div id="contenedor" class="container">
+    <div class="row">
+        <div id="divError">
+            <i class="fa fa-times-circle"></i>
+            <span id="txtError"></span>
+            <span class="closebtn" onclick="desvanecerDiv();">&times;</span>
+        </div>
+
+        <div id="contenedor-formulario" class="col s12 l6 offset-l3 grey lighten-5 z-depth-5">
+            <div class="col s12">
+                <h2>Iniciar Sesión</h2>
+            </div>
+            <form id="formulario" class="col s12" onsubmit="return false;" method="POST">
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="correo" name="correo" type="text"" class="validate" autocomplete="nope">
+                        <label for="correo">Correo</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input id="pass" name="pass" type="password" class="validate" autocomplete="new-password">
+                        <label for="pass">Clave</label>
+                    </div>
+
+                    <input type="hidden" name="iniciar_sesion" value="true">
+                    <button id="boton-iniciar-sesion" class="light-blue lighten-2 btn waves-effect waves-light center" type="submit" name="action" onclick="comprobarCredenciales();">Entrar
+                    </button>
+                </div> 
+            </form>
+        </div>     
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="js/inicio_sesion.js"></script>
+{% endblock %}

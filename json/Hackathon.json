@@ -1,0 +1,778 @@
+{
+  "config": {
+    "head": "Desarrollo Basado en Agentes 2019-2020",
+    "title": "HACKATHON: Playing with Jake  and Freezer",
+    "author": "Luis Castillo Vidal",
+    "email": "L.Castillo@decsai.ugr.es",
+    "subjects": [
+      {
+        "id": "ALAMINOS MORON, PABLO"
+      },
+      {
+        "id": "ALI ASSERHAOU, NABIL"
+      },
+      {
+        "id": "ALONSO RAMOS, JOSE JAVIER"
+      },
+      {
+        "id": "BENEGAS CORTES, FRANCISCO"
+      },
+      {
+        "id": "BOSCH FERNANDEZ, ANA"
+      },
+      {
+        "id": "BOTELLA LOPEZ, CELIA"
+      },
+      {
+        "id": "BOWEN , KIERAN MICHAEL"
+      },
+      {
+        "id": "BUENO VARGAS, GUILLERMO"
+      },
+      {
+        "id": "CANDELARIA RODRIGUEZ, DIEGO ALFONSO"
+      },
+      {
+        "id": "CARMONA GARCIA, ANGEL"
+      },
+      {
+        "id": "CHEN , YANG"
+      },
+      {
+        "id": "CORDOVILLA GAMEZ, MONICA"
+      },
+      {
+        "id": "CORTES HERRANZ, DIEGO"
+      },
+      {
+        "id": "COTAN LOPEZ, FRANCISCO JOSE"
+      },
+      {
+        "id": "DELGADO GARCIA, PABLO"
+      },
+      {
+        "id": "DIAZ MORENO, JUAN FRANCISCO"
+      },
+      {
+        "id": "FERNANDEZ MARTINEZ, NATALIA"
+      },
+      {
+        "id": "FERNANDEZ ORTEGA, ANDRES"
+      },
+      {
+        "id": "GARCIA CABELLO, MARIA DEL MAR"
+      },
+      {
+        "id": "GARCIA TRIPOLI, BRUNO GABRIEL"
+      },
+      {
+        "id": "GARZON SEGURA, IVAN"
+      },
+      {
+        "id": "GURREA CALLEJAS, ALBERTO"
+      },
+      {
+        "id": "HURTADO ROSALES, MARINA"
+      },
+      {
+        "id": "INFANTE CASAS, DAVID"
+      },
+      {
+        "id": "IZQUIERDO POZO, ADRIAN"
+      },
+      {
+        "id": "IZQUIERDO ROMERA, FERNANDO"
+      },
+      {
+        "id": "JANUSZEWSKI , MARCIN MICHAL"
+      },
+      {
+        "id": "KEANE CA??IZARES, MIGUEL"
+      },
+      {
+        "id": "MARTINEZ MORENO, PRAXEDES"
+      },
+      {
+        "id": "MEDINA MANZANO, ALEJANDRO"
+      },
+      {
+        "id": "MESAS GUTIERREZ, MANUEL"
+      },
+      {
+        "id": "MORENO CARMONA, ENRIQUE"
+      },
+      {
+        "id": "MORILLAS PADIAL, IGNACIO"
+      },
+      {
+        "id": "MOYANO ROMERO, ISMAEL JOSE"
+      },
+      {
+        "id": "??IGUEZ FERNANDEZ, JORGE JUAN"
+      },
+      {
+        "id": "OCA??A VALENZUELA, JUAN"
+      },
+      {
+        "id": "ORIHUELA CAZORLA, MARIANA"
+      },
+      {
+        "id": "PERALTA CAMARA, VICTOR"
+      },
+      {
+        "id": "PEREZ RUBIO, RAIMUNDO"
+      },
+      {
+        "id": "POYATOS KUSSROW, JOSE ANTONIO"
+      },
+      {
+        "id": "POYATOS LOPEZ, ALEJANDRO"
+      },
+      {
+        "id": "REDONDO CORREA, DAVID"
+      },
+      {
+        "id": "ROBLEDILLO PEREA, ANGEL"
+      },
+      {
+        "id": "RODRIGUEZ DURAN, ANA"
+      },
+      {
+        "id": "RODRIGUEZ HODAR, ANGEL"
+      },
+      {
+        "id": "RODRIGUEZ SANCHEZ, ALICIA"
+      },
+      {
+        "id": "RODRIGUEZ SANTANA, ALBERTO"
+      },
+      {
+        "id": "RUIZ JALDO, MARIA NAZARET"
+      },
+      {
+        "id": "RUIZ LOPEZ, ADRIAN"
+      },
+      {
+        "id": "RUIZ SANCHEZ, SERGI"
+      },
+      {
+        "id": "SANTOLLO VARGAS, PAOLA LISSET"
+      },
+      {
+        "id": "SEGUINEAU , VALENTINE"
+      },
+      {
+        "id": "VALLEJO FELIPE, MANUEL"
+      },
+      {
+        "id": "VENDRELL MOLINA, RAFAEL"
+      },
+      {
+        "id": "VILLALBA CRUCELAEGUI, FERNANDO"
+      },
+      {
+        "id": "KEANE CA??IZARES, MIGUEL"
+      },
+      {
+        "id": "??IGUEZ FERNANDEZ, JORGE JUAN"
+      },
+      {
+        "id": "OCA??A VALENZUELA, JUAN"
+      }
+    ],
+    "competences": [
+      {
+        "id": "map1",
+        "description": "Sent a single message to Jake. Scores 0.1 points"
+      },
+      {
+        "id": "map2",
+        "description": "Interchange messages with Jake within a conversation. Scores 0.1 points"
+      },
+      {
+        "id": "map3",
+        "description": "Dialog with Jake and win the game. Scores 0.2 points"
+      },
+      {
+        "id": "Talk (Freezer)",
+        "description": "Sent a single message to Freezer. Scores 0.1 points"
+      },
+      {
+        "id": "Dialog (Freezer)",
+        "description": "Interchange messages with Freezer within a conversation. Scores 0.1 points"
+      },
+      {
+        "id": "Win (Freezer)",
+        "description": "Dialog with Freezer and win the game. Scores 0.2 points"
+      }
+    ],
+    "hits": [
+      {
+        "id": "ProgressTriple",
+        "update": "max",
+        "type": "number",
+        "description": "Degree of acquisition of this competence"
+      },
+      {
+        "id": "First success",
+        "update": "min",
+        "type": "date",
+        "description": "The time at wich this competence was fulfilled for the first time"
+      },
+      {
+        "id": "Messages received",
+        "update": "add",
+        "type": "number",
+        "description": "Number of messages received while acquiring this competence"
+      },
+      {
+        "id": "First message",
+        "update": "min",
+        "type": "date",
+        "description": "Date of first message received while acquiring this competence"
+      },
+      {
+        "id": "Last message",
+        "update": "max",
+        "type": "date",
+        "description": "Date of last message received while acquiring this competence"
+      }
+    ],
+    "report": {
+      "html": "/var/www/html/Analytics",
+      "refresh": 5,
+      "hits_reported": [
+        {
+          "id": "ProgressTriple",
+          "scale": [
+            {
+              "id": "Not started",
+              "from": 0,
+              "to": 0,
+              "img": "red2.png",
+              "description": "Competence not started yet"
+            },
+            {
+              "id": "Not finished",
+              "from": 1,
+              "to": 99,
+              "img": "yellow2.png",
+              "description": "Competence ongoing but not finished yet"
+            },
+            {
+              "id": "Completed",
+              "from": 100,
+              "to": 100,
+              "img": "green2.png",
+              "description": "Competence fully acquired"
+            }
+          ]
+        }
+      ],
+      "badges": [
+        {
+          "id": "Early bird",
+          "hit": "First success",
+          "select": "min",
+          "img": "earlybird.jpg",
+          "description": "Badge for th first subject to complete 100% of this competence"
+        }
+      ]
+    }
+  },
+  "ledger": [
+    {
+      "id": "Miguel K.C.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 2121,
+          "First message": "14/11/2019_11:13:29",
+          "Last message": "14/11/2019_11:32:18"
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 2087,
+          "First message": "14/11/2019_11:13:29",
+          "Last message": "14/11/2019_11:32:16"
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 100,
+          "First success": "14/11/2019_11:32:16",
+          "Messages received": 23,
+          "First message": "14/11/2019_11:13:29",
+          "Last message": "14/11/2019_11:32:16"
+        }
+      ]
+    },
+    {
+      "id": "Nabil A.A.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 461,
+          "First message": "14/11/2019_10:45:46",
+          "Last message": "14/11/2019_10:54:40"
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 444,
+          "First message": "14/11/2019_10:45:47",
+          "Last message": "14/11/2019_10:54:40"
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 100,
+          "First success": "14/11/2019_10:54:40",
+          "Messages received": 441,
+          "First message": "14/11/2019_10:45:47",
+          "Last message": "14/11/2019_10:54:40"
+        }
+      ]
+    },
+    {
+      "id": "Ana B.F.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        }
+      ]
+    },
+    {
+      "id": "Celia B.L.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 259,
+          "First message": "14/11/2019_10:23:43",
+          "Last message": "14/11/2019_11:26:56"
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 174,
+          "First message": "14/11/2019_10:23:44",
+          "Last message": "14/11/2019_11:26:56"
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 100,
+          "First success": "14/11/2019_11:25:39",
+          "Messages received": 21,
+          "First message": "14/11/2019_11:08:57",
+          "Last message": "14/11/2019_11:26:56"
+        }
+      ]
+    },
+    {
+      "id": "Diego C.H.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 877,
+          "First message": "14/11/2019_10:18:42",
+          "Last message": "14/11/2019_11:32:58"
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 855,
+          "First message": "14/11/2019_11:17:09",
+          "Last message": "14/11/2019_11:32:58"
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 100,
+          "First success": "14/11/2019_11:32:58",
+          "Messages received": 850,
+          "First message": "14/11/2019_11:17:09",
+          "Last message": "14/11/2019_11:32:58"
+        }
+      ]
+    },
+    {
+      "id": "Michael Kieran B.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 279,
+          "First message": "14/11/2019_10:28:18",
+          "Last message": "14/11/2019_11:15:37"
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 216,
+          "First message": "14/11/2019_10:43:00",
+          "Last message": "14/11/2019_11:13:42"
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 100,
+          "First success": "14/11/2019_11:13:42",
+          "Messages received": 17,
+          "First message": "14/11/2019_11:10:35",
+          "Last message": "14/11/2019_11:13:42"
+        }
+      ]
+    },
+    {
+      "id": "Pablo A.M.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 87,
+          "First message": "14/11/2019_10:36:50",
+          "Last message": "14/11/2019_10:53:30"
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 53,
+          "First message": "14/11/2019_10:36:50",
+          "Last message": "14/11/2019_10:53:30"
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 100,
+          "First success": "14/11/2019_10:53:30",
+          "Messages received": 35,
+          "First message": "14/11/2019_10:53:25",
+          "Last message": "14/11/2019_10:53:30"
+        }
+      ]
+    },
+    {
+      "id": "Pablo D.G.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        }
+      ]
+    },
+    {
+      "id": "Adrian I.P.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 47,
+          "First message": "14/11/2019_10:53:45",
+          "Last message": "14/11/2019_11:09:44"
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 22,
+          "First message": "14/11/2019_10:55:20",
+          "Last message": "14/11/2019_11:09:28"
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 100,
+          "First success": "14/11/2019_11:09:28",
+          "Messages received": 7,
+          "First message": "14/11/2019_10:55:26",
+          "Last message": "14/11/2019_11:09:28"
+        }
+      ]
+    },
+    {
+      "id": "Monica C.G.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        }
+      ]
+    },
+    {
+      "id": "Alejandro M.M.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        }
+      ]
+    },
+    {
+      "id": "Francisco B.C.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 77,
+          "First message": "14/11/2019_10:18:22",
+          "Last message": "14/11/2019_11:36:20"
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 58,
+          "First message": "14/11/2019_11:13:51",
+          "Last message": "14/11/2019_11:36:20"
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 100,
+          "First success": "14/11/2019_11:36:20",
+          "Messages received": 43,
+          "First message": "14/11/2019_11:36:16",
+          "Last message": "14/11/2019_11:36:20"
+        }
+      ]
+    },
+    {
+      "id": "Fernando I.R.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 1279,
+          "First message": "14/11/2019_10:20:50",
+          "Last message": "14/11/2019_11:49:32"
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 1007,
+          "First message": "14/11/2019_10:44:27",
+          "Last message": "14/11/2019_11:49:32"
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 100,
+          "First success": "14/11/2019_11:49:32",
+          "Messages received": 23,
+          "First message": "14/11/2019_11:48:37",
+          "Last message": "14/11/2019_11:49:32"
+        }
+      ]
+    },
+    {
+      "id": "Francisco Jose C.L.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        }
+      ]
+    },
+    {
+      "id": "Juan Francisco D.M.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 54,
+          "First message": "14/11/2019_10:48:26",
+          "Last message": "14/11/2019_10:48:30"
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 46,
+          "First message": "14/11/2019_10:48:26",
+          "Last message": "14/11/2019_10:48:29"
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 100,
+          "First success": "14/11/2019_10:48:30",
+          "Messages received": 23,
+          "First message": "14/11/2019_10:48:26",
+          "Last message": "14/11/2019_10:48:29"
+        }
+      ]
+    },
+    {
+      "id": "Maria Del Mar G.C.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 729,
+          "First message": "14/11/2019_10:25:49",
+          "Last message": "14/11/2019_11:19:36"
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": 100,
+          "First success": "",
+          "Messages received": 685,
+          "First message": "14/11/2019_10:28:22",
+          "Last message": "14/11/2019_11:19:36"
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": 100,
+          "First success": "14/11/2019_11:17:52",
+          "Messages received": 238,
+          "First message": "14/11/2019_11:13:16",
+          "Last message": "14/11/2019_11:19:36"
+        }
+      ]
+    },
+    {
+      "id": "Diego Alfonso C.R.",
+      "data": [
+        {
+          "id": "map1",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        },
+        {
+          "id": "map2",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        },
+        {
+          "id": "map3",
+          "ProgressTriple": -1,
+          "First success": "",
+          "Messages received": -1,
+          "First message": "",
+          "Last message": ""
+        }
+      ]
+    }
+  ]
+}
